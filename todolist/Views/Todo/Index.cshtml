@@ -1,0 +1,63 @@
+﻿@model todolist.Models.DbEntities.Todo
+
+@{
+    ViewData["Title"] = "Todo list";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<div>
+    <button class="btn btn-primary mb-2" id="btnAdd">Add todo</button>
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+        <input class=" mb-2 p-1" type="text" id="Search" placeholder="search task..."></input>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-success table-striped table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Completed</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tblBody" class="Search">
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="TodoModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" asp-for="Id" value="0" />
+                <div class="mb-2">
+                    <label asp-for="Description"></label>
+                    <input type="text" asp-for="Description" id="Description"
+                           class="form-control" placeholder="todo description" />
+                </div>
+                <div class="mb-2">
+                    <form method="post">
+                        <label asp-for="IsComplete">Completed?</label>
+                        <input asp-for="IsComplete" type="checkbox" id="IsComplete" />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="Save" type="submit" onclick="Insert();">Save</button>
+                <button class="btn btn-success" id="Update" type="submit" onclick="Update();" style="display:none">Update</button>
+                <button class="btn btn-danger" data-bs-dismiss="modal" onclick="HideModal();">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/todojs.js"></script>
