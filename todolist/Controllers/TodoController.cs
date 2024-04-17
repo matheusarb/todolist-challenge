@@ -69,12 +69,5 @@ namespace todolist.Controllers
             await _context.SaveChangesAsync();
             return Json("Todo successfully deleted");
         }
-
-        //[HttpGet]
-        //public async Task<JsonResult> Edit(int id)
-        //{
-        //    var todo = await _context.Todos.FirstOrDefaultAsync(x => x.Id == id);
-        //    return Json(todo);
-        //}
     }
 }

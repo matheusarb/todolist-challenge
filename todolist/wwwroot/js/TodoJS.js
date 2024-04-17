@@ -1,13 +1,8 @@
 ﻿$(document).ready(function () {   
-
-    GetTodos();
+   
+   GetTodos();
 
 });
-
-function Contains(txt_one, txt_two) {
-    if (txt_one.indexOf(txt_two) != -1)
-        return true;
-}
 
 /*Read Data*/
 function GetTodos() {
